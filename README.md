@@ -1,6 +1,6 @@
-# Node.js backend
+# Node.js backend starter
 
-Node.js backend project template
+Starter kit for developing backend in Node.js
 
 ### Run
 
