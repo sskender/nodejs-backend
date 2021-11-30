@@ -2,6 +2,18 @@
 
 Starter kit for developing backend in Node.js
 
+## What is inside?
+
+- cors
+- express
+- helmet
+- mongoose
+- mongoSanitize
+- morgan
+- xss
+- eslint
+- nodemon
+
 ### Run
 
 ```bash
