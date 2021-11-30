@@ -35,3 +35,9 @@ npm run lint
 ```bash
 npm run lint:fix
 ```
+
+### Docker
+
+```bash
+docker build --tag sskender/app:latest .
+```
