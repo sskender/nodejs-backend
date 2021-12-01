@@ -1,6 +1,6 @@
 # Node.js backend starter
 
-Starter kit for developing backend in Node.js
+Starter kit for developing backend with Node.js
 
 ## What is inside?
 
@@ -13,6 +13,7 @@ Starter kit for developing backend in Node.js
 - xss
 - eslint
 - nodemon
+- dotenv
 
 ### Run
 
