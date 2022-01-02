@@ -1,4 +1,4 @@
-FROM node:16-buster as server
+FROM node:latest as server
 
 WORKDIR /opt/app
 RUN chown -R node:node /opt/app
