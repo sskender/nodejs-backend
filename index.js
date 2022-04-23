@@ -8,12 +8,6 @@ const path = require('path')
 const xss = require('xss-clean')
 
 const config = require('./config')
-const routes = require('./routes/v1')
-const { clientErrorHandler, errorHandler } = require('./routes/errors')
-
-mongoose.connect(config.mongoose.connectionString, config.mongoose.options).then(() => {
-  console.log('Connected to MongoDB')
-})
 
 const app = express()
 
@@ -28,10 +22,16 @@ app.use(xss())
 app.use(mongoSanitize())
 
 app.use(express.static(path.join(__dirname, 'public')))
-app.use('/api/v1', routes)
-app.use(clientErrorHandler)
-app.use(errorHandler)
+app.use('/api/v1', require('./routes/v1'))
+app.use(require('./routes/errors').clientErrorHandler)
+app.use(require('./routes/errors').errorHandler)
 
-app.listen(config.port, () =>
-  console.log(`App listening on port ${config.port}!`)
-)
+mongoose.connect(config.mongoose.connectionString, config.mongoose.options).then(() => {
+  console.log('Connected to MongoDB')
+  app.listen(config.port, () =>
+    console.log(`App listening on port ${config.port}`)
+  )
+}).catch(err => {
+  console.error(err)
+  console.log('Failed to connect to MongoDB')
+})
